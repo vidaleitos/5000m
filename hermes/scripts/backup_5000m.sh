@@ -1,40 +1,50 @@
 #!/usr/bin/env bash
 # 每周把 D:/running 提交并推送到 GitHub vidaleitos/5000m (private)
 #
-# 调用链（注意：Hermes gateway 跑在 WSL2，git 和 SSH key 在 Windows 侧）：
-#   cron → (WSL) profile/scripts/backup_5000m.sh  ← 薄包装，只负责找到 git-bash
-#        → (Windows git-bash) 本文件 → git add/commit/push
-#
-# 所以本文件必须在 **Windows git-bash** 里执行，不要直接用 WSL 的 bash 跑
-# （WSL 看不到 /d/running，也没有 Windows 的 ~/.ssh）。
+# 必须在 **Windows git-bash** 里执行（本机 bash 由 Git for Windows 提供）。
+# 每次运行都会往 hermes/scripts/backup-status.log 追加一行心跳，
+# 所以即使训练数据没有变化，也会有一周一次的提交 —— 那就是“任务还在跑”的凭证。
 set -u
 
 REPO="/d/running"
+LOG_REL="hermes/scripts/backup-status.log"
 
 if ! cd "$REPO" 2>/dev/null; then
   echo "❌ 5000m 备份失败：无法进入 $REPO"
   exit 1
 fi
 
-git add -A 2>/dev/null
+LOG="$REPO/$LOG_REL"
+NOW="$(date '+%Y-%m-%d %H:%M')"
+TODAY="$(date +%F)"
+
+say() { printf '%s  %s\n' "$NOW" "$*" >> "$LOG"; }
 
 # ── 凭据护栏：命中就中止，绝不推送 ──────────────────
+git add -A 2>/dev/null
 BAD=$(git diff --cached --name-only | grep -iE '(^|/)(\.env.*|.*session\.json|.*token.*|.*credential.*|.*secret.*)$' || true)
 if [ -n "$BAD" ]; then
   git reset -q
+  say "ABORT 检测到疑似凭据文件，未提交"
   echo "❌ 5000m 备份已中止：检测到疑似凭据文件"
   echo "$BAD" | head -10
   exit 1
 fi
 
-if git diff --cached --quiet; then
-  echo "5000m 备份：无变更（$(date +%F)）"
-  exit 0
+CHANGED=$(git diff --cached --name-only | grep -v "^$LOG_REL$" | wc -l | tr -d ' ')
+
+if [ "$CHANGED" -eq 0 ]; then
+  say "OK    无变更（心跳）"
+  OUT="5000m 备份：无变更（$TODAY）"
+else
+  say "OK    ${CHANGED} 个文件"
+  OUT="$CHANGED 个文件"
 fi
 
-N=$(git diff --cached --name-only | wc -l | tr -d ' ')
+# 心跳行本身也要进这次提交
+git add "$LOG_REL" 2>/dev/null
 
-if ! git commit -q -m "auto: $(date +%F)"; then
+if ! git commit -q -m "auto: $TODAY"; then
   echo "❌ 5000m 备份失败：commit 出错"
   exit 1
 fi
@@ -42,9 +52,9 @@ fi
 H=$(git rev-parse --short HEAD)
 
 if out=$(GIT_SSH_COMMAND="ssh -o ConnectTimeout=25 -o ServerAliveInterval=30" git push 2>&1); then
-  echo "✅ 5000m 备份完成：${N} 个文件 → ${H}（$(date +%F)）"
+  echo "✅ 5000m 备份完成：${OUT} → ${H}（$TODAY）"
 else
-  echo "❌ 5000m 备份：commit ${H} 成功但推送失败（${N} 个文件本地已保存）"
+  echo "❌ 5000m 备份：commit ${H} 成功但推送失败（本地已保存）"
   echo "$out" | tail -5
   exit 1
 fi
