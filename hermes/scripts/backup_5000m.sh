@@ -1,5 +1,12 @@
 #!/usr/bin/env bash
 # 每周把 D:/running 提交并推送到 GitHub vidaleitos/5000m (private)
+#
+# 调用链（注意：Hermes gateway 跑在 WSL2，git 和 SSH key 在 Windows 侧）：
+#   cron → (WSL) profile/scripts/backup_5000m.sh  ← 薄包装，只负责找到 git-bash
+#        → (Windows git-bash) 本文件 → git add/commit/push
+#
+# 所以本文件必须在 **Windows git-bash** 里执行，不要直接用 WSL 的 bash 跑
+# （WSL 看不到 /d/running，也没有 Windows 的 ~/.ssh）。
 set -u
 
 REPO="/d/running"
