@@ -6,6 +6,10 @@
 # 所以即使训练数据没有变化，也会有一周一次的提交 —— 那就是“任务还在跑”的凭证。
 set -u
 
+# cron 拉起时 PATH 往往只有 Windows 部分，找不到 date/wc/tr/grep/mktemp。
+# 先把 git-bash 自己的工具目录放到最前面，否则脚本会在“命令找不到”下静默产空值。
+export PATH="/usr/bin:/bin:/mingw64/bin:$PATH"
+
 REPO="/d/running"
 LOG_REL="hermes/scripts/backup-status.log"
 
@@ -16,7 +20,7 @@ fi
 
 LOG="$REPO/$LOG_REL"
 NOW="$(date '+%Y-%m-%d %H:%M')"
-TODAY="$(date +%F)"
+TODAY="$(date +%Y-%m-%d)"
 
 say() { printf '%s  %s\n' "$NOW" "$*" >> "$LOG"; }
 
