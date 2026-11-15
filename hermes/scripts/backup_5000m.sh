@@ -35,7 +35,7 @@ CHANGED=$(git diff --cached --name-only | grep -v "^$LOG_REL$" | wc -l | tr -d '
 
 if [ "$CHANGED" -eq 0 ]; then
   say "OK    无变更（心跳）"
-  OUT="5000m 备份：无变更（$TODAY）"
+  OUT="无变更（心跳）"
 else
   say "OK    ${CHANGED} 个文件"
   OUT="$CHANGED 个文件"
