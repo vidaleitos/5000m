@@ -1,0 +1,234 @@
+# 5000m 文献库 — 结构化条目
+# 字段：id / domain / citation / design / n / population / finding / effect /
+#       applicability / implication / confidence / verified / url
+# verified: true = 本会话在线核实过 DOI 或 PMC 编号
+
+meta:
+  created: 2026-11-15
+  athlete: "Fajir Xiao, 21y, 181.5cm/65kg, 5K 18:05 (est), 90-105 km/wk, 19 months injury-free"
+  rule: "verified:false 的条目不得单独支撑训练决定"
+
+entries:
+
+# ── 同期训练 / 力量 ────────────────────────────────
+- id: petre-2021-concurrent
+  domain: strength-concurrent
+  citation: "Petré H, et al. Compatibility of Concurrent Aerobic and Strength Training for Skeletal Muscle Size and Function: An Updated Systematic Review and Meta-Analysis. Sports Med. 2021."
+  design: meta-analysis
+  n: 43 studies
+  population: healthy adults, mixed training status
+  finding: "最大力量与肌肥大不受损；爆发力受损（SMD −0.28），且仅在同期训练安排在同一节课内时明显；分离 ≥3 h 后无显著衰减。"
+  effect: "SMD 最大力量 −0.06 (ns) / 爆发力 −0.28 (p=0.007) / 肌肥大 −0.01 (ns)"
+  applicability: high
+  implication: "超等长与跳跃放在与跑分离 ≥3 h 的时段（周四早 vs 晚上跑）；周一跑后只做慢速力量、不做跳跃。"
+  confidence: A
+  verified: true
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC8891239/
+
+- id: ronnestad-2011-endurance-volume
+  domain: strength-concurrent
+  citation: "Rønnestad BR, et al. High volume of endurance training impairs adaptations to 12 weeks of strength training in well-trained endurance athletes. Eur J Appl Physiol. 2011."
+  design: RCT
+  population: well-trained endurance athletes
+  finding: "高容量耐力训练削弱力量适应；干扰是剂量依赖的。"
+  applicability: high
+  implication: "阈值剂量上调的三周，不同时上调跑量 —— 一次只动一个变量。"
+  confidence: B
+  verified: true
+  url: https://pubmed.ncbi.nlm.nih.gov/21833484/
+
+- id: wilson-2012-interference
+  domain: strength-concurrent
+  citation: "Wilson JM, et al. Concurrent training: a meta-analysis examining interference of aerobic and resistance exercises. J Strength Cond Res. 2012."
+  design: meta-analysis
+  n: 21 studies, 422 effect sizes
+  finding: "跑步比自行车造成更强的干扰；干扰与耐力训练量相关。"
+  applicability: medium
+  implication: "自行车研究的结论不能直接搬到跑步 —— 力学与经济性不同源。"
+  confidence: B
+  verified: false
+
+- id: blagrove-2018-strength
+  domain: running-economy
+  citation: "Blagrove RC, Howatson G, Hayes PR. Effects of Strength Training on the Physiological Determinants of Middle- and Long-Distance Running Performance: A Systematic Review. Sports Med. 2018;48:1117-1149."
+  design: systematic review
+  finding: "力量训练改善跑步经济性（多数研究报告 2–8%），对 VO2max 影响小；重负荷与超等长组合效果最好。"
+  applicability: high
+  implication: "力量不是为了更强，是为了同速度更省 —— 目标写经济性，不写力量数字。"
+  confidence: A
+  verified: true
+  url: https://doi.org/10.1007/s40279-017-0835-7
+
+- id: llanos-lagos-2024-economy
+  domain: running-economy
+  citation: "Llanos-Lagos C, et al. Effect of Strength Training Programs in Middle- and Long-Distance Runners' Economy at Different Running Speeds: A Systematic Review with Meta-analysis. Sports Med. 2024."
+  design: meta-analysis
+  finding: "重负荷、超等长、以及两者组合均改善经济性；改善在较慢速度下更明显。"
+  applicability: high
+  implication: "4:41 与 5:10 这两档正是收益最大的区间 —— 力量的经济性回报落在有氧与 LT1，而不在 5K 配速。"
+  confidence: A
+  verified: true
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC11052887/
+
+# ── 过度训练 / 恢复 ────────────────────────────────
+- id: foster-1998-monotony
+  domain: recovery-overtraining
+  citation: "Foster C. Monitoring training in athletes with reference to overtraining syndrome. Med Sci Sports Exerc. 1998;30(7):1164-1168."
+  design: observational
+  n: 25 experienced athletes
+  finding: "训练单调性（周内日均负荷 ÷ 标准差）与训练负荷的乘积为 strain；高 strain 与疾病/小伤相关，且存在个体阈值。"
+  effect: "monotony = mean/SD；strain = load × monotony"
+  applicability: high
+  implication: "每周形状一年不变 = 高 monotony。这是旧计划停滞的第四个原因，也是现在硬软交替、每 4 周降量的依据。"
+  confidence: B
+  verified: true
+  url: https://pubmed.ncbi.nlm.nih.gov/9662690/
+
+- id: kreher-2012-ots
+  domain: recovery-overtraining
+  citation: "Kreher JB, Schwartz JB. Overtraining Syndrome: A Practical Guide. Sports Health. 2012;4(2):128-138."
+  design: review
+  finding: "非功能性过度训练最早的表现之一是：同样负荷下 RPE 升高；单调性是主要诱因之一。"
+  applicability: high
+  implication: "「轻松跑感觉慢」= 文献里的最早信号，不是主观抱怨。它是当前唯一的总量判据。"
+  confidence: B
+  verified: true
+  url: https://pmc.ncbi.nlm.nih.gov/articles/PMC3435910/
+
+- id: urhausen-1993-overtraining
+  domain: recovery-overtraining
+  citation: "Urhausen A, Kindermann W. Overtraining in endurance athletes: a brief review. Med Sci Sports Exerc. 1993."
+  design: review
+  finding: "长期过度训练在耐力项目以副交感型为主：情绪低落、动力丧失、4 mmol/L 乳酸阈表现下降。"
+  applicability: medium
+  implication: "判断标准应包含「动力」而不只是配速 —— 与计划里「不想跑超过 3 天就降级」一致。"
+  confidence: C
+  verified: true
+  url: https://pubmed.ncbi.nlm.nih.gov/8350709
+
+# ── 5K 专项 / 间歇 ────────────────────────────────
+- id: billat-vvo2max
+  domain: intervals-vo2max
+  citation: "Billat V, et al. Interval training at VO2max: effects on aerobic performance and overtraining markers. Med Sci Sports Exerc. 1999 / Billat VLV. Interval training for performance: a scientific and empirical practice. Sports Med. 2001."
+  design: review + experimental
+  finding: "在 vVO2max 强度上，单次能维持的时间约 4–8 分钟（训练者）；以 50% 该时间的段落重复，可获得最多 >90% VO2max 的时间。"
+  applicability: high
+  implication: "6×1000 @3:35（约 3.5 min/段）正好落在这个甜区 —— 这是周一那堂课的生理依据。"
+  confidence: C
+  verified: false
+
+- id: poole-2016-critical-power
+  domain: threshold
+  citation: "Poole DC, Burnley M, Vanhatalo A, Rossiter HB, Jones AM. Critical Power: An Important Fatigue Threshold in Exercise Physiology. Med Sci Sports Exerc. 2016;48(11):2320-2334."
+  design: review
+  finding: "临界功率（CP）以上的工作由 W′ 支撑，W′ 有限且可恢复；CP 是可持续与不可持续的分界。"
+  applicability: medium
+  implication: "5K 是「CP 以上还剩多少 W′」的题 —— 解释了为什么 6×1000 能跑 3:35 而 5 km 连续跑不到 3:35。"
+  confidence: B
+  verified: false
+
+- id: buchheit-2013-hiit
+  domain: intervals-vo2max
+  citation: "Buchheit M, Laursen PB. High-intensity interval training, solutions to the programming puzzle. Sports Med. 2013;43:313-338 / 927-954."
+  design: review (2 parts)
+  finding: "间歇的生理刺激由「工作段时长 × 强度 × 恢复」共同决定；短恢复保持 VO2 高位，长恢复提高每段质量。"
+  applicability: high
+  implication: "6×6:00 用 60 s 慢跑 = 有氧累积路线；6×1000 用 2:30 = 质量路线。两者不是「强度不同」，是目的不同。"
+  confidence: B
+  verified: false
+
+# ── 周期化 ────────────────────────────────────────
+- id: issurin-2010-block
+  domain: periodization
+  citation: "Issurin VB. New horizons for the methodology and physiology of training periodization. Sports Med. 2010;40(3):189-206."
+  design: review
+  finding: "块周期化：集中单一刺激 2–4 周，再以减量块兑现；残余训练效应因能力而异（有氧最长，速度最短）。"
+  applicability: high
+  implication: "3:1 波 + 降量周兑现；有氧的残余效应最长，所以降量时先保阈值与力量，不保速度课。"
+  confidence: B
+  verified: false
+
+- id: mujika-tapering
+  domain: periodization
+  citation: "Bosquet L, Montpetit J, Arvisais D, Mujika I. Effects of tapering on performance: a meta-analysis. Med Sci Sports Exerc. 2007;39(8):1358-1365."
+  design: meta-analysis
+  n: 27 studies
+  finding: "两周内减量 41–60% 效果最好；减量期保持强度、降低量是关键。"
+  applicability: high
+  implication: "W8 降量 30%：组数减半，配速与负重不动 —— 这来自「强度保留」这一条。"
+  confidence: A
+  verified: false
+
+- id: seiler-2010-intensity
+  domain: aerobic-capacity
+  citation: "Seiler S. What is best practice for training intensity and duration distribution in endurance athletes? Int J Sports Physiol Perform. 2010;5(3):276-291."
+  design: review
+  finding: "精英耐力运动员普遍采用「大量低强度 + 少量高强度」的极化分布；但阈值型分布在特定人群与阶段同样有效。"
+  applicability: medium
+  implication: "不能把「极化」当教条 —— 5K 项目的阈值占比本来高于马拉松。"
+  confidence: B
+  verified: false
+
+# ── 心理 / 执教 ──────────────────────────────────
+- id: marcora-2009-mental-fatigue
+  domain: psychology
+  citation: "Marcora SM, Staiano W, Manning V. Mental fatigue impairs physical performance in humans. J Appl Physiol. 2009;106(3):857-864."
+  design: RCT
+  n: 16
+  finding: "认知性精神疲劳在 RPE 不变的情况下降低耐力表现（缩短力竭时间）。"
+  applicability: medium
+  implication: "精神疲劳不是「心情问题」，它直接降低输出 —— 所以计划必须防单调，而不只是防伤。"
+  confidence: B
+  verified: false
+
+- id: ryan-deci-sdt
+  domain: psychology
+  citation: "Ryan RM, Deci EL. Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being. Am Psychol. 2000;55(1):68-78."
+  design: theoretical review
+  finding: "自主性、胜任感、关联感支撑内在动机；外部控制削弱持续性。"
+  applicability: medium
+  implication: "所以计划给区间、给判据、给选择权，而不是给「不许快于 X」—— 后者把自主性换成了服从。"
+  confidence: C
+  verified: false
+
+# ── 力学 / 生物力学 ──────────────────────────────
+- id: barnes-kilding-2015-economy
+  domain: running-economy
+  citation: "Barnes KR, Kilding AE. Strategies to improve running economy. Sports Med. 2015;45(1):37-56."
+  design: review
+  finding: "改善经济性的手段：力量训练、超等长、高海拔/热适应、以及长期跑量；改变跑姿的收益不确定且可能有害。"
+  applicability: high
+  implication: "所以不重塑跑姿，优先发展能力 —— 这是「训练产生能力，能力改变动作」的证据基础。"
+  confidence: B
+  verified: false
+
+- id: myers-anatomy-trains
+  domain: biomechanics
+  citation: "Myers TW. Anatomy Trains: Myofascial Meridians for Manual and Movement Therapists. 3rd ed. Elsevier; 2014."
+  design: textbook / anatomical model
+  finding: "后表线（足底→小腿→大腿后侧→竖脊肌→颅顶）与螺旋线（跨越躯干前后对角）在推进与旋转控制中成链工作。"
+  applicability: medium
+  implication: "后表线 → 单腿 RDL、慢下台阶、提踵；螺旋线 → 蚌式、抗旋转鸟狗。这是动作选择的逻辑，不是命名。"
+  confidence: D
+  verified: false
+
+- id: nsca-cscs
+  domain: strength-concurrent
+  citation: "Haff GG, Triplett NT (eds). Essentials of Strength Training and Conditioning. 4th ed. NSCA / Human Kinetics; 2016."
+  design: textbook
+  finding: "力量发展以强度为先；离心训练对肌腱与结缔组织适应有独特作用；进展应基于表现而非日历。"
+  applicability: high
+  implication: "组数减半但负重不减；3–4 s 下放不只是「动作好看」，它是离心适应的载体。"
+  confidence: E
+  verified: false
+
+# ── 环境 ──────────────────────────────────────────
+- id: raca-2022-heat
+  domain: climate-environment
+  citation: "Racinais S, et al. IOC consensus statement on recommendations and regulations for sport events in the heat. Br J Sports Med. 2023;57(1):8-25."
+  design: consensus statement
+  finding: "热环境下配速下降是生理必然；用固定配速或固定心率跨温度比较都是错的。"
+  applicability: high
+  implication: "所以跨时期比较必须匹配露点、用比值 —— 这条已经写进方法里。"
+  confidence: A
+  verified: false
