@@ -1,0 +1,22 @@
+# ── 不备份 ─────────────────────────────────────────
+*.epub
+pip-cache/
+.obsidian/
+__pycache__/
+*.pyc
+*.lock
+*.bak
+.venv/
+venv/
+
+# 凭据 / 会话令牌 —— 永远不进仓库
+*.session.json
+.session.json
+*token*.json
+.env
+.env.*
+
+# 系统杂项
+Thumbs.db
+desktop.ini
+.DS_Store

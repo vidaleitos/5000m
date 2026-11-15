@@ -1,0 +1,86 @@
+<div class="w">
+  <div class="t">今天：计划是对的，断在第 1 个 400 m</div>
+
+  <div class="row">
+    <div class="card">
+      <div class="ch">你的计划</div>
+      <table class="kv">
+        <tr><td>开局</td><td class="v">3:40 – 3:42</td></tr>
+        <tr><td>整体</td><td class="v">3:35 – 3:42</td></tr>
+        <tr><td>4 km 总时</td><td class="v">14:20 – 14:48</td></tr>
+      </table>
+      <div class="cl">Riegel 从 5K PB 18:33.7 外推的 4 km 是 <b>14:39.1</b>。<br>你的区间把它夹在中间 —— <b>计划不用改</b>。</div>
+    </div>
+
+    <div class="card bad">
+      <div class="ch">实际开局</div>
+      <table class="kv">
+        <tr><td>第 1 个 400 m</td><td class="v hi">81.8 s</td></tr>
+        <tr><td>等于配速</td><td class="v hi">3:24.5 / km</td></tr>
+        <tr><td>比计划快</td><td class="v hi">15.5 s/km</td></tr>
+      </table>
+      <div class="cl">81.8 s/400 m 若撑满 4 km = <b>13:38</b>，比你 3 km PB（10:37 = 3:32.4/km）还快。<br>这个配速你不是"没守住"，是<b>从来就守不住</b>。</div>
+    </div>
+  </div>
+
+  <div class="kcheck">
+    <div class="ch2">下一次：把计划变成两个可以直接看的数字</div>
+    <table class="ck">
+      <tr><th>检查点</th><th class="r">计划区间对应的下限</th><th class="r">今天</th></tr>
+      <tr><td>第 1 个 400 m</td><td class="r">≥ 88.0 s</td><td class="r bad">81.8 s ✗</td></tr>
+      <tr><td>第 1 个 800 m</td><td class="r">≥ 2:56.0</td><td class="r bad">2:47.1 ✗</td></tr>
+    </table>
+    <div class="cl2">过了 800 m 就不用看表了 —— 那时候身体的信号已经可信。問題只出在前 800 m。</div>
+  </div>
+
+  <div class="row">
+    <div class="card">
+      <div class="ch">心率说的事</div>
+      <table class="kv tight">
+        <tr><td>400 m</td><td class="v">177→187</td><td class="p">3:24.5</td></tr>
+        <tr><td>800 m</td><td class="v">188→191</td><td class="p">3:33.2</td></tr>
+        <tr><td>1200 m</td><td class="v">189→191</td><td class="p">3:39.5</td></tr>
+      </table>
+      <div class="cl">心率一路涨、配速一路掉 —— 这个组合只有一个意思：<b>起跑就在可持续强度之上</b>。<br>若是 1.4 km 处撞能力墙，心率会从第一圈就顶死不动。</div>
+    </div>
+
+    <div class="card good">
+      <div class="ch">后面两组反而作数</div>
+      <table class="kv tight">
+        <tr><td>5×400 m</td><td class="v">83.3 84.8 83.8 84.6 85.3</td></tr>
+        <tr><td>极差</td><td class="v acc">2.0 s</td></tr>
+        <tr><td>均配速</td><td class="v">3:30.7 · 恢复 1:26</td></tr>
+        <tr class="sp"><td>2×200 m</td><td class="v">36.6 / 36.0 s</td></tr>
+        <tr><td>步幅</td><td class="v acc">167.3 / 169.7 cm ← 历史最长</td></tr>
+        <tr><td>触地</td><td class="v acc">178.9 / 175.2 ms ← 历史最短</td></tr>
+      </table>
+      <div class="cl">还有一条：<b>HR 191</b>。我之前说"你的心率上不去"，那个判断作废。</div>
+    </div>
+  </div>
+</div>
+<style>
+  .w { color: var(--foreground); font-size: 13px; line-height: 1.5; text-align: left; }
+  .t { font-size: 14px; font-weight: 600; margin-bottom: 11px; }
+  .row { display: flex; gap: 18px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 14px; }
+  .card { min-width: 268px; max-width: 375px; }
+  .ch { font-size: 12px; font-weight: 600; color: var(--accent); margin-bottom: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--border); }
+  .card.bad .ch { color: var(--muted-foreground); }
+  .ch2 { font-size: 12.5px; font-weight: 600; margin-bottom: 6px; }
+  table { border-collapse: collapse; }
+  .kv td { padding: 3px 0; font-variant-numeric: tabular-nums; }
+  .kv td:first-child { color: var(--muted-foreground); font-size: 11.5px; padding-right: 12px; white-space: nowrap; }
+  .kv td.v { font-size: 12.5px; }
+  .kv td.v.hi { color: var(--foreground); font-weight: 600; }
+  .kv td.v.acc { color: var(--accent); font-weight: 600; }
+  .kv td.p { text-align: right; color: var(--muted-foreground); font-size: 11.5px; padding-left: 10px; }
+  tr.sp td { padding-top: 8px; }
+  .ck { border-collapse: collapse; }
+  .ck th { text-align: left; font-weight: 500; color: var(--muted-foreground); font-size: 11px; padding: 0 14px 5px 0; border-bottom: 1px solid var(--border); }
+  .ck td { padding: 6px 14px 6px 0; border-bottom: 1px solid var(--border); font-variant-numeric: tabular-nums; }
+  .ck .r { text-align: right; }
+  .ck td.bad { color: var(--muted-foreground); text-decoration: line-through; }
+  .cl, .cl2 { margin-top: 8px; color: var(--muted-foreground); font-size: 11.5px; line-height: 1.62; max-width: 350px; }
+  .cl b { color: var(--foreground); }
+  .kcheck { margin-bottom: 15px; }
+  .cl2 { max-width: 620px; }
+</style>

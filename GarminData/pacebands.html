@@ -1,0 +1,72 @@
+<div class="w">
+  <div class="t">质量课工作总量 · 按配速带分布 <span class="u">km</span></div>
+  <div class="lg">
+    <span><i class="c1"></i>≤3:37 快于 5K 配速</span>
+    <span><i class="c2"></i>3:38–3:49 <b>5K 配速带</b></span>
+    <span><i class="c3"></i>3:50–4:05</span>
+    <span><i class="c4"></i>4:06–4:15 阈值带</span>
+    <span><i class="c5"></i>&gt;4:16</span>
+  </div>
+  <table>
+    <tr>
+      <th>时期</th><th class="r">堂数</th><th class="bw">工作总量分布</th>
+      <th class="r">5K 带</th><th>同期 PR</th>
+    </tr>
+    <tr>
+      <td>25-12 → 26-02</td><td class="r n">10</td>
+      <td><div class="bar"><i class="c1" style="flex:16.5"></i><i class="c2" style="flex:8.5"></i><i class="c3" style="flex:16.6"></i><i class="c4" style="flex:6.4"></i><i class="c5" style="flex:13"></i></div></td>
+      <td class="r h">8.5</td><td class="m">—</td>
+    </tr>
+    <tr>
+      <td>26-02 → 26-04</td><td class="r n">15</td>
+      <td><div class="bar"><i class="c1" style="flex:12.3"></i><i class="c2" style="flex:61"></i><i class="c3" style="flex:24.2"></i><i class="c4" style="flex:0.02"></i><i class="c5" style="flex:3.6"></i></div></td>
+      <td class="r h">61.0</td><td class="m">5K <b>18:33.7</b></td>
+    </tr>
+    <tr>
+      <td>26-04 → 26-06</td><td class="r n">16</td>
+      <td><div class="bar"><i class="c1" style="flex:42.9"></i><i class="c2" style="flex:57.3"></i><i class="c3" style="flex:14"></i><i class="c4" style="flex:0.02"></i><i class="c5" style="flex:0.02"></i></div></td>
+      <td class="r h">57.3</td><td class="m">mile <b>5:36.8</b> · 3K <b>10:37</b></td>
+    </tr>
+    <tr>
+      <td>26-06 → 26-08</td><td class="r n">15</td>
+      <td><div class="bar"><i class="c1" style="flex:9"></i><i class="c2" style="flex:39.3"></i><i class="c3" style="flex:0.02"></i><i class="c4" style="flex:0.02"></i><i class="c5" style="flex:39"></i></div></td>
+      <td class="r h">39.3</td><td class="m">—</td>
+    </tr>
+    <tr class="now">
+      <td>26-08 → 26-10 <span class="tag">现在</span></td><td class="r n">28</td>
+      <td><div class="bar"><i class="c1" style="flex:19.6"></i><i class="c2" style="flex:8.1"></i><i class="c3" style="flex:0.3"></i><i class="c4" style="flex:32.1"></i><i class="c5" style="flex:26.6"></i></div></td>
+      <td class="r h dim">8.1</td><td class="m">—</td>
+    </tr>
+  </table>
+  <div class="nt">同样两个半月：2–4 月有 <b>61 km</b> 跑在 5K 配速带，8–10 月只剩 <b>8.1 km</b>。<br>同期质量课堂数反而从 15 涨到 28 —— 不是练得少了，是工作整体换了个配速带。</div>
+</div>
+<style>
+  .w { color: var(--foreground); font-size: 13px; line-height: 1.5; text-align: left; }
+  .t { font-size: 14px; font-weight: 600; margin-bottom: 9px; }
+  .u { font-weight: 400; color: var(--muted-foreground); font-size: 12px; }
+  .lg { display: flex; flex-wrap: wrap; gap: 11px; color: var(--muted-foreground); font-size: 11px; margin-bottom: 11px; }
+  .lg span { display: flex; align-items: center; gap: 5px; }
+  .lg b { color: var(--accent); }
+  .lg i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+  i.c1 { background: var(--foreground); }
+  i.c2 { background: var(--accent); }
+  i.c3 { background: var(--accent); opacity: .5; }
+  i.c4 { background: var(--muted-foreground); }
+  i.c5 { background: var(--muted-foreground); opacity: .45; }
+  table { border-collapse: collapse; }
+  th { text-align: left; font-weight: 500; color: var(--muted-foreground); font-size: 11px; padding: 0 10px 5px 0; border-bottom: 1px solid var(--border); }
+  th.r, td.r { text-align: right; }
+  th.bw { width: 330px; }
+  td { padding: 6px 10px 6px 0; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  td.n { color: var(--muted-foreground); }
+  .bar { display: flex; height: 15px; border-radius: 3px; overflow: hidden; }
+  .bar i { display: block; height: 100%; }
+  td.h { color: var(--accent); font-weight: 600; font-size: 13px; }
+  td.h.dim { color: var(--muted-foreground); }
+  td.m { color: var(--muted-foreground); font-size: 11px; white-space: nowrap; }
+  td.m b { color: var(--foreground); }
+  tr.now td { background: rgba(128,128,128,.13); }
+  .tag { font-size: 10px; color: var(--accent); border: 1px solid var(--accent); border-radius: 3px; padding: 0 4px; margin-left: 4px; }
+  .nt { margin-top: 12px; color: var(--muted-foreground); font-size: 12px; line-height: 1.65; max-width: 690px; }
+  .nt b { color: var(--foreground); }
+</style>
